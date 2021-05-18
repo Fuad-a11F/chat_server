@@ -44,8 +44,10 @@ io.on('connection', (socket) => {
     })
 })
 
-server.listen(3001,  () => {
-    console.log('DAAA')
+let port = process.env.PORT || 3001
+
+server.listen(port,  () => {
+    console.log(`server is working on ${port} port`)
 })
 
 
