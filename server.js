@@ -3,13 +3,17 @@ const express = require('express')
 const app = express();
 const server = require('http').createServer(app);
 const io = require('socket.io')(server, {cors: {origin: "*"}});
-const cors = require('cors')
+const cors = require('cors');
+const { RSA_NO_PADDING } = require('constants');
 
 let storeBd = {first: {
     users: [],
     message: []
 }}
 
+app.get('/', (req, res) => {
+    res.send('running')
+})
 
 app.get('/room', (req, res) => {
     res.json(storeBd.first.users)
